@@ -1,4 +1,4 @@
-package com.binar.ariefaryudisyidik.recyclerviewsample
+package com.binar.ariefaryudisyidik.recyclerviewsample.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,23 +6,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.binar.ariefaryudisyidik.recyclerviewsample.adapter.UserAdapter
 import com.binar.ariefaryudisyidik.recyclerviewsample.data.User
+import com.binar.ariefaryudisyidik.recyclerviewsample.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-    private lateinit var userRecyclerView: RecyclerView
+
+    private lateinit var _binding: FragmentHomeBinding
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userRecyclerView = view.findViewById(R.id.user_recycler_view)
 
         val userList = listOf(
             User(
@@ -39,8 +41,8 @@ class HomeFragment : Fragment() {
 
         val userAdapter = UserAdapter(userList)
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-        userRecyclerView.layoutManager = layoutManager
-        userRecyclerView.adapter = userAdapter
+        binding.userRecyclerView.layoutManager = layoutManager
+        binding.userRecyclerView.adapter = userAdapter
     }
 
 }

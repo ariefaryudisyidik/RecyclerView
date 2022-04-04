@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.binar.ariefaryudisyidik.recyclerviewsample.HomeFragment"
+        android:name="com.binar.ariefaryudisyidik.recyclerviewsample.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.binar.ariefaryudisyidik.recyclerviewsample.DetailFragment"
+        android:name="com.binar.ariefaryudisyidik.recyclerviewsample.ui.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
